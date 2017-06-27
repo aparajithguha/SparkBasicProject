@@ -1,6 +1,6 @@
-# Import Data into Dataframe
+# Simple Spark Project
 This project is done in Spark using the Dataframes and Spark SQL to perform an analysis on a Marketing Dataset<br>
- 
+ # Import Data into Dataframe
  <pre>import org.apache.spark.sql.hive._
 val hc = new HiveContext(sc)
 case class Person(age: Int, job: String, marital: String, education: String, default: String, balance: Int, Housing:  String, loan: String, contact: String, day: Int, month: String, duration: Int, campaign: Int, pdays: Int, previous: Int, poutcome: String, subscription: String)
