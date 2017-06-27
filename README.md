@@ -35,9 +35,10 @@ create a simple scala UDF function for age category to created a new age group c
       age match {
       case t if t < 30 => "young"
       case t if t > 65 => "old"
-      case _ => "mid"   } } )</pre>
-      <code><b>ageToCategory: org.apache.spark.sql.UserDefinedFunction</b></code><br>
-<b>Query</b>
+      case _ => "mid"   } } )</pre><br>
+      
+<code><b>ageToCategory: org.apache.spark.sql.UserDefinedFunction</b></code><br>
+<b>Query</b><br>
 <code>newdf.where(newdf("subscription")==="yes").groupBy("agecategory").count().sort($"count".desc).show</code><br>
 
 # marital check, age and marital, age
