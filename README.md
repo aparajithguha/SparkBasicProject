@@ -29,7 +29,7 @@ print("market failure rate:" +((c)/a))</pre>
 df.agg(avg("balance")).show()</pre><br>
 
 # Creating Scala UDF function
-create a simple scala UDF function for age category to created a new age group category and add it to the Data frame
+create a simple scala UDF function for age category to created a new age group category and add it to the Data frame<br>
 <code><b>import org.apache.spark.sql.functions.udf</b></code><br>
 <pre>def ageToCategory = udf((age:Int) => {
       age match {
