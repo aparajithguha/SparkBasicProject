@@ -10,7 +10,7 @@ This project is done in Spark using the Dataframes and Spark SQL to perform an a
 <code>val data = sqlContext.sql("SELECT * from person");</code><br>
 <code>data.show()</code>
 
-#Success and Failure Rate
+# Success and Failure Rate
 <code>val countsub = sqlContext.sql("SELECT * FROM person WHERE subscription='yes'").count()</code><br>
 <code>val notsub=sqlContext.sql("SELECT * FROM person WHERE subscription='no'").count()</code><br>
 <code>val data = sqlContext.sql("SELECT * from person").count()</code><br>
