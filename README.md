@@ -9,5 +9,14 @@ This project is done in Spark using the Dataframes and Spark SQL to perform an a
 <code>df.registerTempTable("person");</code><br>
 <code>val data = sqlContext.sql("SELECT * from person");</code><br>
 <code>data.show()</code>
-<code>val countsub = sqlContext.sql("SELECT * FROM person WHERE subscription='yes'").count()
+
+#Success and Failure Rate
+<code>val countsub = sqlContext.sql("SELECT * FROM person WHERE subscription='yes'").count()</code><br>
+<code>val notsub=sqlContext.sql("SELECT * FROM person WHERE subscription='no'").count()</code><br>
+<code>val data = sqlContext.sql("SELECT * from person").count()</code><br>
+<code>val a = data.toFloat</code><br>
+<code>val b = countsub.toFloat</code><br>
+<code>val c = notsub.toFloat</code><br>
+<code>print("people subscription rate:" +((b)/a))</code><br>
+<code>print("market failure rate:" +((c)/a))</code><br>
 
