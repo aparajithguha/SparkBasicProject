@@ -37,7 +37,8 @@ create a simple scala UDF function for age category to created a new age group c
       case t if t > 65 => "old"
       case _ => "mid"   } } )</pre><br>
       
-<code><b>ageToCategory: org.apache.spark.sql.UserDefinedFunction</b></code><br>
+<pre><b>ageToCategory: org.apache.spark.sql.UserDefinedFunction</b>
+val newdf = df.withColumn(“agecategory”,ageToCategory(df(”age”)))</pre>
 <b>Query</b><br>
 <code>newdf.where(newdf("subscription")==="yes").groupBy("agecategory").count().sort($"count".desc).show</code><br>
 
