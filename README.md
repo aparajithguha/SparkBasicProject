@@ -20,3 +20,9 @@ This project is done in Spark using the Dataframes and Spark SQL to perform an a
 <code>print("people subscription rate:" +((b)/a))</code><br>
 <code>print("market failure rate:" +((c)/a))</code><br>
 
+# Maximum, Mean, and Minimum age of average targeted customer
+<code>df.agg(avg("age"),max("age"),min("age")).show()</code><br>
+
+# Check quality of customers by checking average balance, median balance of customers
+<code>sqlContext.sql("select percentile(balance, 0.5) median from person").show()</code><br>
+<code>df.agg(avg("balance")).show()</code><br>
