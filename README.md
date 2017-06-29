@@ -4,7 +4,7 @@ This project is done in Spark using the Dataframes and Spark SQL to perform an a
  <pre>import org.apache.spark.sql.hive._
 val hc = new HiveContext(sc)
 case class Person(age: Int, job: String, marital: String, education: String, default: String, balance: Int, Housing:  String, loan: String, contact: String, day: Int, month: String, duration: Int, campaign: Int, pdays: Int, previous: Int, poutcome: String, subscription: String)
-val myFile = sc.textFile("updateddataset.txt")
+val myFile = sc.textFile("updateddataset.csv")
 val df= myFile.map( x => x.split(";") ).map( x=> Person(x(0).trim.toInt,x(1),x(2),x(3),x(4),x(5).trim.toInt,x(6),x(7),x(8),x(9).trim.toInt,x(10),x(11).trim.toInt,x(12).trim.toInt,x(13).trim.toInt,x(14).trim.toInt,x(15),x(16))).toDF()
 df.registerTempTable("person");
 val data = sqlContext.sql("SELECT * from person");
