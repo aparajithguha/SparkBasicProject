@@ -7,13 +7,13 @@ case class Person(age: Int, job: String, marital: String, education: String, def
 val myFile = sc.textFile("updateddataset.csv")
 val df= myFile.map( x => x.split(";") ).map( x=> Person(x(0).trim.toInt,x(1),x(2),x(3),x(4),x(5).trim.toInt,x(6),x(7),x(8),x(9).trim.toInt,x(10),x(11).trim.toInt,x(12).trim.toInt,x(13).trim.toInt,x(14).trim.toInt,x(15),x(16))).toDF()
 df.registerTempTable("person");
-val data = sqlContext.sql("SELECT * from person");
+val data = hc.sql("SELECT * from person");
 data.show()</pre>
 
 # Success and Failure Rate
-<pre>val countsub = sqlContext.sql("SELECT * FROM person WHERE subscription='yes'").count()
-val notsub=sqlContext.sql("SELECT * FROM person WHERE subscription='no'").count()
-val data = sqlContext.sql("SELECT * from person").count()
+<pre>val countsub = hc.sql("SELECT * FROM person WHERE subscription='yes'").count()
+val notsub=hc.sql("SELECT * FROM person WHERE subscription='no'").count()
+val data = hc.sql("SELECT * from person").count()
 val a = data.toFloat
 val b = countsub.toFloat
 val c = notsub.toFloat
@@ -25,7 +25,7 @@ print("market failure rate:" +((c)/a))</pre>
 <code>df.agg(avg("age"),max("age"),min("age")).show()</code><br>
 
 # Check quality of customers by checking average balance, median balance of customers
-<pre>sqlContext.sql("select percentile(balance, 0.5) median from person").show()
+<pre>hc.sql("select percentile(balance, 0.5) median from person").show()
 df.agg(avg("balance")).show()</pre><br>
 
 # Creating Scala UDF function
